@@ -92,4 +92,3 @@ This is the "G" in RAG. The powerful LLM (Google's Gemini Pro) receives this "au
 
 In short, **NotebookLM works by using a "search-then-synthesize" system (RAG) that forces a powerful language model to base its answers exclusively on your provided documents, complete with verifiable citations.**
 
-
