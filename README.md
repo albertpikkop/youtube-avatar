@@ -92,11 +92,3 @@ This is the "G" in RAG. The powerful LLM (Google's Gemini Pro) receives this "au
 
 In short, **NotebookLM works by using a "search-then-synthesize" system (RAG) that forces a powerful language model to base its answers exclusively on your provided documents, complete with verifiable citations.**
 
----
-
-## Development
-
-This repository includes a minimal retrieval-augmented generation pipeline in
-`src/rag_pipeline.py`. The module provides utilities for ingesting text files,
-chunking them, indexing with a FAISS vector store and retrieving relevant chunks
-to build prompts for a language model.
