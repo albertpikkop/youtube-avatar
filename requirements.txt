@@ -1,1 +1,7 @@
-
+fastapi
+uvicorn
+faiss-cpu
+sentence-transformers
+numpy
+pyttsx3
+pydub
