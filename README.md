@@ -92,3 +92,19 @@ This is the "G" in RAG. The powerful LLM (Google's Gemini Pro) receives this "au
 
 In short, **NotebookLM works by using a "search-then-synthesize" system (RAG) that forces a powerful language model to base its answers exclusively on your provided documents, complete with verifiable citations.**
 
+## Running the demo application
+
+This repository now contains a small full-stack demo built with FastAPI and a
+simple HTML/JS frontend. The backend exposes endpoints to ingest text files,
+query them and generate shareable notebook links.
+
+Install the requirements and run the development server:
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+Then open `http://localhost:8000` in your browser. The page lets you upload
+files, issue queries and request share links directly from the browser.
+

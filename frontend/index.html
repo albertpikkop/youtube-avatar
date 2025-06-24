@@ -13,10 +13,57 @@
     Your browser does not support the audio element.
 </audio>
 <p>Play offline: once loaded, this audio will be available without network.</p>
+
+<h2>Get Shareable Link</h2>
+<label>Notebook ID: <input id="nb-id" type="text"/></label>
+<label>Mode:
+  <select id="mode">
+    <option value="read-only">Read only</option>
+    <option value="interactive">Interactive</option>
+  </select>
+</label>
+<button id="share-btn">Share</button>
+<pre id="share-result"></pre>
+
+<h2>Ingest Files</h2>
+<input id="files" type="file" multiple/>
+<button id="ingest-btn">Ingest</button>
+<pre id="ingest-result"></pre>
+
+<h2>Query</h2>
+<input id="query" type="text" placeholder="Ask a question"/>
+<button id="query-btn">Send</button>
+<pre id="query-result"></pre>
 <script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js');
 }
+
+const $ = id => document.getElementById(id);
+
+$('#share-btn').onclick = async () => {
+    const id = $('#nb-id').value;
+    const mode = $('#mode').value;
+    const resp = await fetch(`/share/${id}?mode=${mode}`);
+    const data = await resp.json();
+    $('#share-result').textContent = data.shareable_link;
+};
+
+$('#ingest-btn').onclick = async () => {
+    const files = $('#files').files;
+    const fd = new FormData();
+    for (const f of files) fd.append('files', f);
+    const resp = await fetch('/ingest', {method: 'POST', body: fd});
+    const data = await resp.json();
+    $('#ingest-result').textContent = JSON.stringify(data, null, 2);
+};
+
+$('#query-btn').onclick = async () => {
+    const q = $('#query').value;
+    const resp = await fetch(`/query?q=${encodeURIComponent(q)}`);
+    const data = await resp.json();
+    $('#query-result').textContent = data.prompt;
+};
 </script>
 </body>
 </html>
