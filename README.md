@@ -91,3 +91,21 @@ This is the "G" in RAG. The powerful LLM (Google's Gemini Pro) receives this "au
 | **Best For** | Students, researchers, writers, analysts studying specific texts. | General knowledge, creative writing, brainstorming, coding. |
 
 In short, **NotebookLM works by using a "search-then-synthesize" system (RAG) that forces a powerful language model to base its answers exclusively on your provided documents, complete with verifiable citations.**
+
+---
+
+## Sharing API
+
+This repository includes a simple FastAPI server with an endpoint for sharing notebooks. It returns a link to the requested notebook in either `read-only` or `interactive` mode.
+
+Run the server:
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+## Mobile Friendly Web Interface
+
+A lightweight web page is provided in `frontend/index.html`. It registers a service worker so the bundled `audio/beep.mp3` can play while offline.
+
