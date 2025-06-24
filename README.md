@@ -92,15 +92,4 @@ This is the "G" in RAG. The powerful LLM (Google's Gemini Pro) receives this "au
 
 In short, **NotebookLM works by using a "search-then-synthesize" system (RAG) that forces a powerful language model to base its answers exclusively on your provided documents, complete with verifiable citations.**
 
-## Podcast-Style Audio Output
-
-`podcast_creator.py` converts conversation text into a single audio file. Each line of the input text file is read aloud and stitched together into a podcast-style MP3.
-
-### Usage
-
-```bash
-python3 podcast_creator.py conversation.txt --output my_podcast.mp3
-```
-
-The script uses `pyttsx3` for text-to-speech and `pydub` to merge the segments. The resulting audio file will contain the narrated conversation, suitable for listening as a mini-podcast.
 
